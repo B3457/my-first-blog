@@ -7,18 +7,14 @@
 		<div>
 			<h1><a href="">Django blog app</a></h1>
 		</div>
-
-		<div>
-			<p>published: 14.02.1994, 20:05</p>	
-			<h2><a href="">My first post</a></h2>
-			<p>This is my default template, how do you like it cunts?</p>
-		</div>
-
-		<div>
-			<p>published: 28.11.2014, 13:44</p>
-			<h2><a href="">My second post</a></h2>
-			<p>This basic HTML look is very ugly, we need to improve that!</p>
-		</div>	
+		
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href="">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaks }}</p>
+			</div>
+		{% endfor %}		
 			
 	</body>	
 </html>	
